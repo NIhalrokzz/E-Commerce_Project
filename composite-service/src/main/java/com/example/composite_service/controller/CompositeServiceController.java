@@ -42,7 +42,7 @@ public class CompositeServiceController {
     @PostMapping("/customer")
     public ResponseEntity<Customer> savingCustomer(@RequestBody CustomerRequest customer) throws CustomException {
 
-        if(customer.getCustomer().getCustomerName().length() == 0 || customer.getCustomer().getCustomerEmail().length() == 0 || customer.getCustomer().getCustomerBillingAddress().size() == 0 || customer.getCustomer().getCustomerShippingAddress().size() == 0){
+        if(customer.getCustomer().getCustomerName().length() == 0 || customer.getCustomer().getCustomerEmail().length() == 0){
             throw new CustomException("Invalid data", HttpStatus.BAD_REQUEST);
         }
 
