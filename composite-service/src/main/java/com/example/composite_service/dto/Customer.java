@@ -11,18 +11,16 @@ public class Customer {
 
     private String customerEmail;
 
-    private List<CustomerAddress> customerBillingAddress;
+    private CustomerBillingAddress customerBillingAddress;
 
-    @OneToMany(targetEntity = CustomerAddress.class,cascade = CascadeType.ALL)
-    @JoinColumn(referencedColumnName = "id",name = "address")
-    private List<CustomerAddress> customerShippingAddress;
+    private CustomerShippingAddress customerShippingAddress;
 
 	public Customer() {
 		super();
 	}
 
-	public Customer(String customerName, String customerEmail, List<CustomerAddress> customerBillingAddress,
-			List<CustomerAddress> customerShippingAddress) {
+	public Customer(String customerName, String customerEmail, CustomerBillingAddress customerBillingAddress,
+			CustomerShippingAddress customerShippingAddress) {
 		super();
 		this.customerName = customerName;
 		this.customerEmail = customerEmail;
@@ -54,19 +52,19 @@ public class Customer {
 		this.customerEmail = customerEmail;
 	}
 
-	public List<CustomerAddress> getCustomerBillingAddress() {
+	public CustomerBillingAddress getCustomerBillingAddress() {
 		return customerBillingAddress;
 	}
 
-	public void setCustomerBillingAddress(List<CustomerAddress> customerBillingAddress) {
+	public void setCustomerBillingAddress(CustomerBillingAddress customerBillingAddress) {
 		this.customerBillingAddress = customerBillingAddress;
 	}
 
-	public List<CustomerAddress> getCustomerShippingAddress() {
+	public CustomerShippingAddress getCustomerShippingAddress() {
 		return customerShippingAddress;
 	}
 
-	public void setCustomerShippingAddress(List<CustomerAddress> customerShippingAddress) {
+	public void setCustomerShippingAddress(CustomerShippingAddress customerShippingAddress) {
 		this.customerShippingAddress = customerShippingAddress;
 	}
 
